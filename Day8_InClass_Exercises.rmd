@@ -2,7 +2,7 @@
 title: "Lists - In Class Exercises"
 author: "Dr. Shoemaker"
 date: "DATA 2401"
-output:nhtml_document
+output: html_document
 
 ---
 
@@ -11,7 +11,11 @@ output:nhtml_document
 Make a list that contains the information on a single playing card. Suit, face, and value. 
 
 ```{r}
-
+Card <- list(
+  Suit = ("Heart"),
+  Face = ("Queen"),
+  Value = 12
+)
 
 ```
 
@@ -19,6 +23,11 @@ Make a list that contains the information on a single playing card. Suit, face, 
 Make a second list where each element contains all the options for suit, face, and value, respectively. 
 
 ```{r}
+cards <- list(
+  face = c("ace", "king", "queen", "jack"),
+  suit = c("diamond", "clover", "heart", "spade"),
+  values = c(1,13,12,11)
+)
 
 
 ```
@@ -29,21 +38,30 @@ If `Newlist <- list(a=1:10, b="Good morning", c="Hi")`, write an R statement tha
 ```{r}
 Newlist <- list(a=1:10, b="Good morning", c="Hi")
 
-
+Newlist[[1]] + 1 
 ```
 
 If `b <- list(a=1:10, c="Hello", d="AA")`, write an R expression that will give all elements of the first vector of b, except the second, and write another that returns only elements of `a` that are greater than 7.
 
 ```{r}
 b <- list(a=1:10, c="Hello", d="AA")
+tag_variable <- "a"
+b[[tag_variable]]
 
+b$a
+b$a > 7
+b$a [b$a > 7]  # brackets for indexing
 
+b$a [-2]
+b[[1]][-2]
+
+b[-2] # gets rid of the 2nd list 
 ```
 
 Let `x <- list(a=5:10, c="Hello", d="AA")`, write an R statement to add a new item z = "NewItem" to the list x.
 
 ```{r}
 x <- list(a=5:10, c="Hello", d="AA")
-
+ x$z <- "NewItem"
 
 ```
